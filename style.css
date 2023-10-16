@@ -353,7 +353,6 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent;
     display: block;
   }
   
@@ -473,3 +472,26 @@ body {
     background-color: #434343;
 }
 
+
+
+@media (max-width: 576px) {
+    .name-cont {
+        transform: scale(0.8);
+        bottom: 200px;
+        left: 350px;
+        text-align: center;
+        display: grid;
+    }
+    .imgcont img{
+        margin-right:350px;
+        transform: scale(0.8);
+        padding-top: 380px;
+    }
+    .rainbow-hover {
+        top: 10px;
+    }
+    .paragrafo p{
+        font-size: 5rem;
+    }
+
+}

@@ -300,7 +300,8 @@ body {
     position:relative;
     width: 100%;
     height: 30%;
-    padding: 60px;
+    left: 10px;
+    top: 50px;
     align-items: center;
     display: grid;
     grid-template-columns: max-content;
@@ -479,18 +480,24 @@ body {
         right: 5px;
     }
 
-
     .name-cont {
         transform: scale(0.8);
-        bottom: 200px;
-        left: 350px;
-        text-align: center;
-        display: grid;
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
     }
+
+    .paragrafo {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        
+         /* O un valore specifico come "250px" */
+    }
+    
     .imgcont img{
-        margin-right:350px;
-        transform: scale(0.8);
-        padding-top: 380px;
+        display: none;
     }
     .rainbow-hover {
         top: 10px;

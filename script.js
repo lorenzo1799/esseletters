@@ -23,6 +23,10 @@ var rainbowHover = document.querySelector(".rainbow-hover")
 
 const lerp = (x, y, a) => x * (1 - a) + y * a;
 
+
+//                  HELLO LOADING PAGE
+
+
 const hello_arr = ["Hello", "Hola","स्वागत हे", "Hallo", "Bonjour", "Ciao", "你好", "G'day","Guten tag", "Ola", "नमस्ते"];
 
 
@@ -44,7 +48,7 @@ window.onload = function () {
 
     displayNextHello();
 };
-
+/*
 herotonav.addEventListener("click", () => {
     document.querySelector(".hero-nav-a").classList.toggle("fa-xmark");
     document.querySelector(".nav").classList.toggle("transform-nav");
@@ -176,7 +180,7 @@ stripes.forEach(stripe => {
             duration: .3
         })
     })
-})
+}) */
 /*herotonav.addEventListener("mousemove", function (dets) {
     var dims = herotonav.getBoundingClientRect();
     var xstart = dims.x;
@@ -216,6 +220,55 @@ herotonav.addEventListener("mouseleave", function () {
       });
 });
 */
+
+
+
+//                                  DARK       MODE ON
+
+
+changemodecircle.addEventListener("click",function(){
+    document.querySelector(".change-mode-circle").classList.toggle("change-mode-circle-class");
+    document.querySelector(".change-mode-circle i").classList.toggle("fa-moon");
+    document.querySelector(".changeinputdarklight").classList.toggle("input-backgroundchange");
+    document.querySelector(".hero-section #madeby").classList.toggle("madebydark");
+    document.querySelector(".hero-section .block").classList.toggle("block-dark");
+    document.querySelector(".name").classList.toggle("name-dark");
+    //document.querySelector(".hero-to-nav a i").classList.toggle("ii-color-white")
+    document.querySelector(".hero-section").classList.toggle("ondark-hero");
+    document.querySelector(".nav").classList.toggle("main-dark");
+    document.querySelector(".nav #madeby").classList.toggle("madebydark");
+    document.querySelector(".nav .block").classList.toggle("block-dark-nav");
+})
+
+//                           ANIMAZIONE  "mousemove"
+
+
+changemodecircle.addEventListener("mousemove",function(dets){
+    var dims = changemodecircle.getBoundingClientRect();
+    var xstart = dims.x;
+    var xend = xstart + dims.width;
+
+    var zeroOne = gsap.utils.mapRange(xstart, xend, 0, 1, dets.clientX);
+
+    var dims2 = changemodecircle.getBoundingClientRect();
+    var ystart = dims2.y;
+    var yend = ystart + dims2.height;
+
+    var zerotwo = gsap.utils.mapRange(ystart, yend, 0, 1, dets.clientY);
+
+
+    gsap.to(this,{
+        x:lerp(-20,20,zeroOne),
+        y:lerp(-30,30,zerotwo)
+    })
+})
+changemodecircle.addEventListener("mouseleave",function(){
+    gsap.to(this,{
+        x:0,
+        y:0
+    })
+})
+
 esseElement.addEventListener("mousemove",function(dets) {
     var dims = esseElement.getBoundingClientRect();
     var xstart = dims.x;
@@ -294,48 +347,6 @@ copyright.addEventListener("mouseleave", function() {
         y: 0
     });
 });
-
-
-// changemode
-changemodecircle.addEventListener("click",function(){
-    document.querySelector(".change-mode-circle").classList.toggle("change-mode-circle-class");
-    document.querySelector(".change-mode-circle i").classList.toggle("fa-moon");
-    document.querySelector(".changeinputdarklight").classList.toggle("input-backgroundchange");
-    document.querySelector(".hero-section #madeby").classList.toggle("madebydark");
-    document.querySelector(".hero-section .block").classList.toggle("block-dark");
-    document.querySelector(".name").classList.toggle("name-dark");
-    //document.querySelector(".hero-to-nav a i").classList.toggle("ii-color-white")
-    document.querySelector(".hero-section").classList.toggle("ondark-hero");
-    document.querySelector(".nav").classList.toggle("main-dark");
-    document.querySelector(".nav #madeby").classList.toggle("madebydark");
-    document.querySelector(".nav .block").classList.toggle("block-dark-nav");
-})
-
-changemodecircle.addEventListener("mousemove",function(dets){
-    var dims = changemodecircle.getBoundingClientRect();
-    var xstart = dims.x;
-    var xend = xstart + dims.width;
-
-    var zeroOne = gsap.utils.mapRange(xstart, xend, 0, 1, dets.clientX);
-
-    var dims2 = changemodecircle.getBoundingClientRect();
-    var ystart = dims2.y;
-    var yend = ystart + dims2.height;
-
-    var zerotwo = gsap.utils.mapRange(ystart, yend, 0, 1, dets.clientY);
-
-
-    gsap.to(this,{
-        x:lerp(-20,20,zeroOne),
-        y:lerp(-30,30,zerotwo)
-    })
-})
-changemodecircle.addEventListener("mouseleave",function(){
-    gsap.to(this,{
-        x:0,
-        y:0
-    })
-})
 
 
 

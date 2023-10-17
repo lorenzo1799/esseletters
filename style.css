@@ -475,6 +475,11 @@ body {
 
 
 @media (max-width: 576px) {
+    .change-dark-light {
+        right: 5px;
+    }
+
+
     .name-cont {
         transform: scale(0.8);
         bottom: 200px;

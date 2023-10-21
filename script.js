@@ -1,10 +1,41 @@
+
+//                  HELLO LOADING PAGE
 gsap.registerPlugin(ScrollTrigger);
+
+const hello_arr = ["Hello", "Hola","स्वागत हे", "Hallo", "Bonjour", "Ciao", "你好", "G'day","Guten tag", "Ola", "नमस्ते"];
+
+
+window.onload = function () {
+    const spanHelloContainer = document.querySelector(".span-hello-container");
+    const spanHello = document.querySelector(".span-hello");
+
+    // Impedisci lo scrolling
+    document.body.style.overflow = 'hidden';
+
+    let currentIndex = 0;
+
+    function displayNextHello() {
+        if (currentIndex < hello_arr.length) {
+            spanHello.textContent = hello_arr[currentIndex];
+            currentIndex++;
+            setTimeout(displayNextHello, 220);
+        } else {
+            spanHelloContainer.classList.add("translate-animation");
+
+            
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    displayNextHello();
+};
+
 
 // Animazione per le immagini a sinistra
 gsap.to(".left", {
     x: 0,
     opacity: 1,
-    stagger: 0.5, // Ritardo tra ogni animazione
+    stagger: 0.1, // Ritardo tra ogni animazione
     scrollTrigger: {
         trigger: ".container",
         start: "top 75%", // La posizione dello scroll quando inizia l'animazione
@@ -27,6 +58,8 @@ gsap.to(".right", {
         scrub: true
     }
 });
+
+
 
 var active = 3;
 
@@ -55,207 +88,39 @@ var rainbowHover = document.querySelector(".rainbow-hover");
 
 const lerp = (x, y, a) => x * (1 - a) + y * a;
 
-
-//                  HELLO LOADING PAGE
-
-
-const hello_arr = ["Hello", "Hola","स्वागत हे", "Hallo", "Bonjour", "Ciao", "你好", "G'day","Guten tag", "Ola", "नमस्ते"];
-
-
-window.onload = function () {
-    const spanHelloContainer = document.querySelector(".span-hello-container");
-    const spanHello = document.querySelector(".span-hello");
-
-    let currentIndex = 0;
-
-    function displayNextHello() {
-        if (currentIndex < hello_arr.length) {
-            spanHello.textContent = hello_arr[currentIndex];
-            currentIndex++;
-            setTimeout(displayNextHello, 220);
-        } else {
-            spanHelloContainer.classList.add("translate-animation");
-        }
-    }
-
-    displayNextHello();
-};
-/*
-herotonav.addEventListener("click", () => {
-    document.querySelector(".hero-nav-a").classList.toggle("fa-xmark");
-    document.querySelector(".nav").classList.toggle("transform-nav");
-}) 
-
-gsap.to(mncircles[active - 1], {
-    opacity: .5,
-})
-gsap.to(sec[active - 1], {
-    opacity: 1,
-})
-mncircles.forEach(function (circle, index) {
-    circle.addEventListener("click", function () {
-        gsap.to("#circle", {
-            rotate: (active - (index + 1)) * 10,
-            ease: Expo.easeInOut,
-            duration: 1
-        })
-        greyout();
-        gsap.to(this, {
-            opacity: .5
-        })
-        gsap.to(sec[index], {
-            opacity: 1
-        })
-    }) 
-    circle.addEventListener("mousemove", () => {
-        gsap.to(dot, {
-            scale: .4,
-            opacity: 1,
-            background: "rgb(0, 0, 0)",
-            ease: Expo,
-            duration: .3,
-        });
-    })
-    circle.addEventListener("mouseleave", () => {
-        gsap.to(dot, {
-            scale: 1,
-            background: "black",
-            opacity: 0,
-            duration: .5
-        })
-    })
-})
-h4.forEach(function (h4, index) {
-    h4.addEventListener("click", function () {
-        gsap.to("#circle", {
-            rotate: (active - (index + 1)) * 10,
-            ease: Expo.easeInOut,
-            duration: 1
-        })
-        greyout();
-        gsap.to(mncircles[index], {
-            opacity: .5
-        })
-        gsap.to(this, {
-            opacity: 1
-        })
-        gsap.to(sec[index], {
-            opacity: 1
-        })
-    })
-})
-function greyout() {
-    gsap.to(mncircles, {
-        opacity: .1
-    })
-    gsap.to(sec, {
-        opacity: .4
-    })
-}
-
-
-gsap.to("#circle", {
-    rotate: 0,
-    ease: Expo.easeInOut,
-    duration: 1
-})
-
-
-window.addEventListener("mousemove", function (dets) {
-    gsap.to(dot, {
-        x: dets.clientX,
-        y: dets.clientY,
-        duration: .2,
-        ease: Expo
-    })
-});
-stripes.forEach(stripe => {
-    stripe.addEventListener("mousemove", function (dets) {
-
-        var dims = stripe.getBoundingClientRect();
-        var xstart = dims.x;
-        var xend = xstart + dims.width;
-
-        var zeroOne = gsap.utils.mapRange(xstart, xend, 0, 1, dets.clientX);
-
-
-        var dimsy = stripe.getBoundingClientRect();
-        var ystart = dimsy.y;
-        var yend = ystart + dimsy.height;
-
-        var zeroOney = gsap.utils.mapRange(ystart, yend, 0, 1, dets.clientY);
-
-
-        gsap.to(dot, {
-            scale: 4,
-            background: "rgb(0, 0, 0)",
-            opacity: 1
-        })
-        gsap.to(this, {
-            color: "silver",
-            x: lerp(-20, 20, zeroOne),
-            y: lerp(-20, 20, zeroOney),
-            duration: .3
-        })
-    })
-    stripe.addEventListener("mouseleave", function () {
-        gsap.to(dot, {
-            scale: 1,
-            duration: .5,
-            ease: Expo.easeInOut,
-            opacity: 0
-        })
-        gsap.to(this, {
-            color: "black",
-            x: 0,
-            y: 0,
-            duration: .3
-        })
-    })
-}) */
-/*herotonav.addEventListener("mousemove", function (dets) {
-    var dims = herotonav.getBoundingClientRect();
+//                           ANIMAZIONE  "mousemove"
+function handleMouseMove(event) {
+    var dims = this.getBoundingClientRect();
     var xstart = dims.x;
     var xend = xstart + dims.width;
 
-    var zerone = gsap.utils.mapRange(xstart, xend, 0, 1, dets.clientX);
+    var zeroOne = gsap.utils.mapRange(xstart, xend, 0, 1, event.clientX);
 
-    var dims2 = herotonav.getBoundingClientRect();
-    var ystart = dims2.y;
-    var yend = ystart + dims2.height;
+    var ystart = dims.y;
+    var yend = ystart + dims.height;
 
-    var zerotwo = gsap.utils.mapRange(ystart, yend, 0, 1, dets.clientY);
+    var zerotwo = gsap.utils.mapRange(ystart, yend, 0, 1, event.clientY);
 
     gsap.to(this, {
-        cursor: "pointer",
-        x: lerp(-30, 30, zerone),
-        y: lerp(-30, 30, zerotwo),
-        duration: 0.3
+        x: lerp(-20, 20, zeroOne),
+        y: lerp(-30, 30, zerotwo)
     });
-    gsap.to(".hero-nav-a", {
-        x:lerp(-20,20,zerone),
-        y:lerp(-20,20,zerotwo),
-        fontSize: "1.5rem"
-      });
-});
+}
 
-herotonav.addEventListener("mouseleave", function () {
+function handleMouseLeave() {
     gsap.to(this, {
         x: 0,
-        y: 0,
-        duration: 0.3
+        y: 0
     });
-    gsap.to(".hero-nav-a", {
-        x:0,
-        y:0,
-        fontSize: "1rem"
-      });
+}
+
+// Lista di elementi su cui applicare l'effetto
+var elements = [esseElement, changemodecircle, rainbowHover, copyright];
+
+elements.forEach(element => {
+    element.addEventListener("mousemove", handleMouseMove);
+    element.addEventListener("mouseleave", handleMouseLeave);
 });
-*/
-
-
-
-
 
 //                                  DARK       MODE ON
 
@@ -274,144 +139,13 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-//                           ANIMAZIONE  "mousemove"
 
 
 
 
 
-esseElement.addEventListener("mousemove",function(dets) {
-    var dims = esseElement.getBoundingClientRect();
-    var xstart = dims.x;
-    var xend = xstart + dims.width;
-
-    var zeroOne = gsap.utils.mapRange(xstart, xend, 0, 1, dets.clientX);
-
-    var dims2 = esseElement.getBoundingClientRect();
-    var ystart = dims2.y;
-    var yend = ystart + dims2.height;
-
-    var zerotwo = gsap.utils.mapRange(ystart, yend, 0, 1, dets.clientY);
-
-    gsap.to(this, {
-        x: lerp(-20, 20, zeroOne),
-        y: lerp(-30, 30, zerotwo)
-    });
-});
-
-esseElement.addEventListener("mouseleave", function() {
-    gsap.to(this, {
-        x: 0,
-        y: 0
-    });
-});
 
 
-
-changemodecircle.addEventListener("mousemove",function(dets){
-    var dims = changemodecircle.getBoundingClientRect();
-    var xstart = dims.x;
-    var xend = xstart + dims.width;
-
-    var zeroOne = gsap.utils.mapRange(xstart, xend, 0, 1, dets.clientX);
-
-    var dims2 = changemodecircle.getBoundingClientRect();
-    var ystart = dims2.y;
-    var yend = ystart + dims2.height;
-
-    var zerotwo = gsap.utils.mapRange(ystart, yend, 0, 1, dets.clientY);
-
-
-    gsap.to(this,{
-        x:lerp(-20,20,zeroOne),
-        y:lerp(-30,30,zerotwo)
-    })
-})
-changemodecircle.addEventListener("mouseleave",function(){
-    gsap.to(this,{
-        x:0,
-        y:0
-    })
-})
-
-
-
-
-
-rainbowHover.addEventListener("mousemove",function(dets) {
-    var dims = rainbowHover.getBoundingClientRect();
-    var xstart = dims.x;
-    var xend = xstart + dims.width;
-
-    var zeroOne = gsap.utils.mapRange(xstart, xend, 0, 1, dets.clientX);
-
-    var dims2 = rainbowHover.getBoundingClientRect();
-    var ystart = dims2.y;
-    var yend = ystart + dims2.height;
-
-    var zerotwo = gsap.utils.mapRange(ystart, yend, 0, 1, dets.clientY);
-
-    gsap.to(this, {
-        x: lerp(-20, 20, zeroOne),
-        y: lerp(-30, 30, zerotwo)
-    });
-});
-
-rainbowHover.addEventListener("mouseleave", function() {
-    gsap.to(this, {
-        x: 0,
-        y: 0
-    });
-});
-
-copyright.addEventListener("mousemove",function(dets) {
-    var dims = copyright.getBoundingClientRect();
-    var xstart = dims.x;
-    var xend = xstart + dims.width;
-
-    var zeroOne = gsap.utils.mapRange(xstart, xend, 0, 1, dets.clientX);
-
-    var dims2 = copyright.getBoundingClientRect();
-    var ystart = dims2.y;
-    var yend = ystart + dims2.height;
-
-    var zerotwo = gsap.utils.mapRange(ystart, yend, 0, 1, dets.clientY);
-
-    gsap.to(this, {
-        x: lerp(-20, 20, zeroOne),
-        y: lerp(-30, 30, zerotwo)
-    });
-});
-
-copyright.addEventListener("mouseleave", function() {
-    gsap.to(this, {
-        x: 0,
-        y: 0
-    });
-});
-
-function animateScrollElements(selector) {
-    const target = document.querySelectorAll(selector);
-  
-    target.forEach((element) => {
-      var pos = window.pageYOffset * element.dataset.rate;
-  
-      if (element.dataset.direction === 'vertical') {
-        element.style.transform = `translate3d(0px, ${pos}px, 0px)`;
-      } else {
-        var posX = window.pageYOffset * element.dataset.ratex;
-        var posY = window.pageYOffset * element.dataset.ratey;
-  
-        element.style.transform = `translate3d(${posX}px, ${posY}px, 0px)`;
-      }
-    });
-  }
-  
-  window.addEventListener('scroll', function(e) {
-    animateScrollElements('.scroll');
-    animateScrollElements('.immagine');
-    animateScrollElements('.immagine1');
-  });
 
 
 

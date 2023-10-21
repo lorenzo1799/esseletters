@@ -3,8 +3,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 @font-face {
   font-family: "Gotico"; /* Puoi dare un nome a tua scelta */
-  src: url("fonts/brodequin/Brodequin-Regular.ttf"); /* Percorso relativo al file del font */
+  src: url("font/Brodequin-Regular.ttf"); /* Percorso relativo al file del font */
 }
+
 
 /*                RE-SET page */
 * {
@@ -31,15 +32,13 @@ html,
 body {
   width: 100%;
   height: 100%;
-  backdrop-filter: blur(20px);
-  background-color: rgba(234, 233, 233, 0.7);
+  background-color: rgba(234, 233, 233);
   scroll-behavior: smooth;
 }
 
-.spacer {
+.spacer100 {
   width: 100%;
-  height: 400px;
-  background-color: #000;
+  height: 100px;
 }
 
 /*                                 HELLO !! */
@@ -152,7 +151,7 @@ body {
 }
 
 .imgcont {
-  transform: scale(1.3);
+  transform: scale(1.2);
   margin-right: 120px;
   margin-top: 135px;
   position: relative;
@@ -170,7 +169,7 @@ body {
   align-items: center;
   display: grid;
   grid-template-columns: max-content;
-  transform: scale(1.05);
+  transform: scale(1.07);
 }
 .name {
   margin-left: 70px;
@@ -180,13 +179,16 @@ body {
   font-size: 6.5rem;
   user-select: none;
 }
-
 .name p {
   font-size: 1rem;
   user-select: none;
   word-spacing: 0.2rem;
 }
-
+.esse {
+  font-family: Gotico, sans-serif;
+  font-size: large;
+  font-weight: bold;
+}
 .paragrafo {
   margin-top: 15px;
 }
@@ -232,12 +234,6 @@ body {
   transition: 0.3s;
   transform: scale(0.93);
 }
-.esse {
-  font-family: Gotico, sans-serif;
-  font-size: large;
-  font-weight: bold;
-}
-
 
 /*                    stile bottone      CHANGE MODE */
 .change-dark-light {
@@ -309,216 +305,74 @@ body {
 .ondark-product {
   background-color: #000;
 }
-/*                            NAV BAR
-.hero-to-nav{
-    width: 5vw;
-    height: 5vw;
-    position: fixed;
-    z-index:200;
-    top:30px;
-    right:50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background-color: rgb(0, 0, 0);
-    box-shadow: 0px 1px 8px 1px #434343;
-}
-
-.hero-to-nav a i{
-    font-size: 1rem;
-}
-*/
-
-/*
-#cross-nav {
-    width: 5vw;
-    height: 5vw;
-    position: absolute;
-    top: 20px;
-    right: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.5rem;
-    border-radius: 50%;
-    cursor: pointer;
-    background-color: rgb(57, 57, 173);
-}
-*/
-
-/*.nav {
-    width: 100%;
-    height: 100%;
-    top:0;
-    z-index: 100;
-    position: fixed;
-    overflow: hidden;
-    background-color: rgb(255, 255, 89);
-}
-*/
-
-/*.nav{
-    transform: translateX(100%);
-    transition: transform .5s cubic-bezier(0.19, 1, 0.22, 1);
-}
 
 
-.transform-nav{
-    transform:translatex(0);
-}
-*/
-
-/*.i-color-white{
-    color: rgba(219, 219, 219, 0.788);
-}
-.ii-color-white{
-    color: white;
-}
-*/
-/*
-#circle {
-    position: absolute;
-    left: -75vh;
-    top: 50%;
-    transform: translate(0, -50%) rotate(100deg);
-    width: 150vh;
-    height: 150vh;
-    border-radius: 50%;
-    border: 2px solid #f3f3f3;
-    background-color: red; 
-}
-
-.stripe {
-    width: 100%;
-    display: flex;
-    height: 60px;
-    /* background-color: yellow; 
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform-origin: 0% 50%;
-    transform: translate(0, -50%);
-}
-
-.str-1 {
-    transform: translate(0, -50%) rotate(-20deg);
-}
-
-.str-2 {
-    transform: translate(0, -50%) rotate(-10deg);
-}
-
-.str-4 {
-    transform: translate(0, -50%) rotate(10deg);
-}
-
-.str-5 {
-    transform: translate(0, -50%) rotate(20deg);
-}
-
-.first {
-    width: 50%;
-    height: 100%;
-    position: relative;
-    background-color: black; 
-}
-
-.sm-circle {
-    position: absolute;
-    right: -5px;
-    top: 50%;
-    transform: translate(0, -50%);
-    border-radius: 50%;
-    width: .4vw;
-    height: .4vw;
-    background-color: #777;
-}
-
-.sec {
-    width: 50%;
-    height: 100%;
-    padding-left: 30px;
-    opacity: .4;
-}
-
-.sec h4 {
-    cursor: pointer;
-    font-family: poppins;
-    font-size: 2vw;
-    letter-spacing: .1rem;
-    font-weight: 600;
-}
-
-.sec h6 {
-    font-size: 1vw;
-    opacity: .5;
-    font-weight: 500;
-    font-family: poppins;
-}
 
 
-#panel {
-    width: 5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 30%;
-    /* background-color: red; 
-    position: absolute;
-    right: 3%;
-    top: 50%;
-    transform: translate(0, -50%);
-}
 
-.mn-circle {
-    border-radius: 50%;
-    width: 1vw;
-    height: 1vw;
-    opacity: .1;
-    cursor: pointer;
-    background-color: #000;
-}
-
-.dot {
-    position: absolute;
-    width: 3vw;
-    height: 3vw;
-    top: -20px;
-    left: -20px;
-    border-radius: 50%;
-    /* background-color: rgb(57, 57, 173); 
-}
-
-.head-h4 {
-    width: fit-content;
-    color: black;
-}
-*/
-
-
-/*                 PRODUCT SECTION   */
+/*                       PRODUCT SECTION   */
 
 .product-section {
   width: 100%;
   height: 100%;
 }
 
-.prod-title {
-
+.title-container {
+  margin: 50px;
+  margin-bottom: 200px;
 }
 
-.write { 
-  font-family: aggiungi un altro font;
+.title-text {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 10rem;
+  font-family: Gotico, sans-serif;
 }
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px;
+}
+.image {
+  margin-bottom: 50px;
+}
+
+.left {
+  transform: translateX(-20%);
+}
+
+.right {
+  transform: translateX(20%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*                                                              MEDIA  QUERY     */
 @media (max-width: 576px) {
+
+  .nav-bar-hero {
+    display: none;
+  }
+
+
   .change-dark-light {
     right: 5px;
   }
+
 
   .name-cont {
     transform: scale(0.8);
@@ -528,9 +382,7 @@ body {
     align-items: center;
     height: 100%;
   }
-  .nav-list {
-    display: none;
-  }
+
 
   .paragrafo {
     white-space: nowrap;
@@ -551,24 +403,3 @@ body {
 }
 
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #000;
-}
-.image {
-  margin: 20px 0;
-  opacity: 0.5; /* Nasconde le immagini inizialmente */
-}
-
-.left {
-  transform: translateX(-100%); 
-  min-width: 300px;/* Sposta le immagini a sinistra all'inizio */
-}
-
-.right {
-  transform: translateX(100%);
-  min-width: 300px; /* Sposta le immagini a destra all'inizio */
-}
-  

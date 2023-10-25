@@ -1,5 +1,6 @@
 
 //                  HELLO LOADING PAGE
+
 gsap.registerPlugin(ScrollTrigger);
 
 const hello_arr = ["Hello", "Hola","स्वागत हे", "Hallo", "Bonjour", "Ciao", "你好", "G'day","Guten tag", "Ola", "नमस्ते"];
@@ -58,6 +59,28 @@ gsap.to(".right", {
         scrub: true
     }
 });
+
+var elements_to_watch = document.querySelectorAll('.watch');
+
+        // callback
+var callback = function(items){
+  items.forEach((item) => {
+      if(item.isIntersecting){
+           item.target.classList.add("in-page");
+            } else{
+              item.target.classList.remove("in-page");
+            }
+          });
+        }
+
+        // observer
+        var observer = new IntersectionObserver(callback, { threshold: 0.6 } );
+
+        // apply
+        elements_to_watch.forEach((element) => {
+          observer.observe(element);
+        });
+
 
 
 
@@ -133,10 +156,17 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".hero-section #madeby").classList.toggle("madebydark");
         document.querySelector(".hero-section .block").classList.toggle("block-dark");
         document.querySelector(".name").classList.toggle("name-dark");
+        document.querySelector(".title-text").classList.toggle("ondark-title");
         document.querySelector(".hero-section").classList.toggle("ondark-hero");
-        document.querySelector(".product-section").classList.toggle("ondark-product")
+        document.querySelector(".wrapper").classList.toggle("ondark-wrapper");
+        document.querySelector(".icons").classList.toggle("ondark-icons");
     })
 });
+
+
+
+
+
 
 
 

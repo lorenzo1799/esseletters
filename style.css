@@ -41,6 +41,11 @@ body {
   height: 100px;
 }
 
+.spacer50 {
+  width: 100%;
+  height: 50px;
+}
+
 /*                                 HELLO !! */
 
 .span-hello-container {
@@ -301,16 +306,32 @@ body {
   background-color: #000;
 }
 
-
-.ondark-product {
+.ondark-wrapper {
   background-color: #000;
 }
 
+.ondark-title {
+  color: white;
+}
 
-
+.ondark-icons {
+  color: white;
+}
 
 
 /*                       PRODUCT SECTION   */
+
+.icon-container {
+  width: 800px;
+}
+
+.icons {
+  transform: scale(4);
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
 
 .product-section {
   width: 100%;
@@ -321,13 +342,22 @@ body {
   margin: 50px;
   margin-bottom: 200px;
 }
+.fade-in {
+  opacity: 0.4;
+  transition: all 1s cubic-bezier(0.315, 0.61, 0.355, 1);
+  text-align: center;
+}
+
+.fade-in.in-page {
+  opacity: 1;
+}
 
 .title-text {
   display: flex;
   justify-content: center;
   text-align: center;
   font-size: 10rem;
-  font-family: Gotico, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 
@@ -341,6 +371,7 @@ body {
   margin-bottom: 50px;
 }
 
+
 .left {
   transform: translateX(-20%);
 }
@@ -348,10 +379,6 @@ body {
 .right {
   transform: translateX(20%);
 }
-
-
-
-
 
 
 

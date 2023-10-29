@@ -1,4 +1,3 @@
-
 //                  HELLO LOADING PAGE
 
 gsap.registerPlugin(ScrollTrigger);
@@ -60,29 +59,28 @@ gsap.to(".right", {
     }
 });
 
-var elements_to_watch = document.querySelectorAll('.watch');
 
-        // callback
-var callback = function(items){
-  items.forEach((item) => {
-      if(item.isIntersecting){
-           item.target.classList.add("in-page");
-            } else{
-              item.target.classList.remove("in-page");
-            }
-          });
-        }
-
-        // observer
-        var observer = new IntersectionObserver(callback, { threshold: 0.6 } );
-
-        // apply
-        elements_to_watch.forEach((element) => {
-          observer.observe(element);
-        });
-
-
-
+function animateScrollElements(selector) {
+    const target = document.querySelectorAll(selector);
+  
+    target.forEach((element) => {
+      var pos = window.pageYOffset * element.dataset.rate;
+  
+      if (element.dataset.direction === 'vertical') {
+        element.style.transform = `translate3d(0px, ${pos}px, 0px)`;
+      } else {
+        var posX = window.pageYOffset * element.dataset.ratex;
+        var posY = window.pageYOffset * element.dataset.ratey;
+  
+        element.style.transform = `translate3d(${posX}px, ${posY}px, 0px)`;
+      }
+    });
+  }
+  
+  window.addEventListener('scroll', function(e) {
+    animateScrollElements('.scroll');
+  });
+  
 
 var active = 3;
 
@@ -106,10 +104,15 @@ var copyright = document.querySelector(".copyright");
 
 var rainbowHover = document.querySelector(".rainbow-hover");
 
+var icons = document.querySelector(".fa-brands");
+
 
 
 
 const lerp = (x, y, a) => x * (1 - a) + y * a;
+
+
+
 
 //                           ANIMAZIONE  "mousemove"
 function handleMouseMove(event) {
@@ -138,14 +141,37 @@ function handleMouseLeave() {
 }
 
 // Lista di elementi su cui applicare l'effetto
-var elements = [esseElement, changemodecircle, rainbowHover, copyright];
+var elements = [esseElement, changemodecircle, rainbowHover, copyright, icons];
 
 elements.forEach(element => {
     element.addEventListener("mousemove", handleMouseMove);
     element.addEventListener("mouseleave", handleMouseLeave);
 });
 
+//      FOOTER
+const inputs = document.querySelectorAll(".input");
+
+function focusFunc() {
+  let parent = this.parentNode;
+  parent.classList.add("focus");
+}
+
+function blurFunc() {
+  let parent = this.parentNode;
+  if (this.value == "") {
+    parent.classList.remove("focus");
+  }
+}
+
+inputs.forEach((input) => {
+  input.addEventListener("focus", focusFunc);
+  input.addEventListener("blur", blurFunc);
+});
+
+
+
 //                                  DARK       MODE ON
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -156,10 +182,22 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".hero-section #madeby").classList.toggle("madebydark");
         document.querySelector(".hero-section .block").classList.toggle("block-dark");
         document.querySelector(".name").classList.toggle("name-dark");
-        document.querySelector(".title-text").classList.toggle("ondark-title");
         document.querySelector(".hero-section").classList.toggle("ondark-hero");
         document.querySelector(".wrapper").classList.toggle("ondark-wrapper");
         document.querySelector(".icons").classList.toggle("ondark-icons");
+        document.querySelector(".scroll").classList.toggle("scroll-dark")        
+        
+
+        // Seleziona tutti gli elementi con la classe "crafting"
+        const titleTexts = document.querySelectorAll(".crafting");
+        titleTexts.forEach(title => {
+            title.classList.toggle("name-dark");
+        });
+
+        const scrollText = document.querySelectorAll(".scroll");
+        scrollText.forEach(title => {
+            title.classList.toggle("name-dark");
+        });
     })
 });
 

@@ -185,14 +185,17 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".hero-section").classList.toggle("ondark-hero");
         document.querySelector(".wrapper").classList.toggle("ondark-wrapper");
         document.querySelector(".icons").classList.toggle("ondark-icons");
-        document.querySelector(".scroll").classList.toggle("scroll-dark")        
-        
-
+               
         // Seleziona tutti gli elementi con la classe "crafting"
         const titleTexts = document.querySelectorAll(".crafting");
         titleTexts.forEach(title => {
             title.classList.toggle("name-dark");
         });
+
+        const scrollWork = document.querySelectorAll(".scroll");
+        scrollWork.forEach(scroll => {
+          scroll.classList.toggle("scroll-dark");
+        })
     })
 });
 

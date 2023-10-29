@@ -115,7 +115,7 @@
           <div class="spacer200"></div>
           <section class="about">
             <div class="topic">
-              <div class="scroll1" data-rate="0.5" data-direction="horizontal" data-ratex="-0.9" data-ratey="0">
+              <div class="scroll" data-rate="0.5" data-direction="horizontal" data-ratex="-0.9" data-ratey="0">
                 Works
               </div>
               <div class="crafting"><p>
@@ -181,23 +181,23 @@
               <form action="index.html" autocomplete="off">
                 <h3 class="footer-title">Contact us</h3>
                 <div class="input-container">
-                  <input type="text" name="name" class="input" />
-                  <label for="">Username</label>
+                  <input type="text" id="username" name="name" class="input" autocomplete="name"/>
+                  <label for="username">Username</label>
                   <span>Username</span>
                 </div>
                 <div class="input-container">
-                  <input type="email" name="email" class="input" />
-                  <label for="">Email</label>
+                  <input type="email" id="useremail" name="email" class="input" autocomplete="email" />
+                  <label for="useremail">Email</label>
                   <span>Email</span>
                 </div>
                 <div class="input-container">
-                  <input type="tel" name="phone" class="input" />
-                  <label for="">Phone</label>
+                  <input type="tel" id="userphone" name="phone" class="input" autocomplete="tel"/>
+                  <label for="userphone">Phone</label>
                   <span>Phone</span>
                 </div>
                 <div class="input-container textarea">
-                  <textarea name="message" class="input"></textarea>
-                  <label for="">Message</label>
+                  <textarea id="usermessage" name="message" class="input" autocomplete="on"></textarea>
+                  <label for="usermessage">Message</label>
                   <span>Message</span>
                 </div>
                 <input type="submit" value="Send" class="footer-btn" />

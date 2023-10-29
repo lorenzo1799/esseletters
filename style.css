@@ -330,16 +330,16 @@ body {
 .scroll-dark {
   background: linear-gradient(
     90deg,
-    #866ee7,
-    #ea60da,
-    #ed8f57,
-    #fbd41d,
-    #2cca91
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  display: block;
+    #E8EBF3,  /* Very Light Steel Blue - Brightest Silver Start */
+    #F0F0F0,  /* Almost White - Brightest Silver */
+    #C8C8C8,  /* Light Gray - Luminous Middle Silver */
+    #A0A0A0,  /* Slightly Dark Gray - Luminous Dark Silver */
+    #F0F0F0   /* Almost White - Brightest Silver End */
+);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+
 }
 
 
@@ -380,6 +380,20 @@ body {
   top: -150px;
 }
 
+.sp-Works {
+  background: linear-gradient(
+    90deg,
+    #2E3A47,  /* Charcoal Start */
+    #21282f,  
+    #4A5766,  /* Steel Gray Middle */
+    #5A6875,
+    #6B7A85   /* Slate Gray End */
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .scroll1 {
   font-size: 250px;
   font-family: 'Krona One', sans-serif;
@@ -396,6 +410,10 @@ body {
   transform: translateX(50px);
   opacity: 90%;
 }
+.indented-text {
+  margin-left: 70px;  /* o il valore che preferisci */
+}
+
 
 .immagini-tattoo {
   margin-top: 80px;

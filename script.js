@@ -193,11 +193,6 @@ document.addEventListener("DOMContentLoaded", function() {
         titleTexts.forEach(title => {
             title.classList.toggle("name-dark");
         });
-
-        const scrollText = document.querySelectorAll(".scroll");
-        scrollText.forEach(title => {
-            title.classList.toggle("name-dark");
-        });
     })
 });
 

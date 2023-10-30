@@ -30,6 +30,22 @@ window.onload = function () {
     displayNextHello();
 };
 
+  // Funzione per gestire l'evento di scroll whatsapp
+  function handleScroll() {
+    // Questa è la variabile che ti permette di regolare l'altezza dello schermo in cui l'icona sparisce
+    var scrollLimit = 350;  // Puoi modificare questo valore come preferisci
+
+    // Se l'utente ha scrollato più del valore di scrollLimit, nascondi l'icona
+    if (window.scrollY > scrollLimit) {
+      document.querySelector('.whatsapp').style.display = 'none';
+    } else {
+      document.querySelector('.whatsapp').style.display = 'block';
+    }
+  }
+
+  // Aggiunta dell'event listener per l'evento di scroll
+  window.addEventListener('scroll', handleScroll);
+
 
 // Animazione per le immagini a sinistra
 gsap.to(".left", {
@@ -168,7 +184,21 @@ inputs.forEach((input) => {
   input.addEventListener("blur", blurFunc);
 });
 
+  // Funzione per gestire l'evento di scroll whatsapp
+  function handleScroll() {
+    // Questa è la variabile che ti permette di regolare l'altezza dello schermo in cui l'icona sparisce
+    var scrollLimit = 350;  // Puoi modificare questo valore come preferisci
 
+    // Se l'utente ha scrollato più del valore di scrollLimit, nascondi l'icona
+    if (window.scrollY > scrollLimit) {
+      document.querySelector('.whatsapp').style.display = 'none';
+    } else {
+      document.querySelector('.whatsapp').style.display = 'block';
+    }
+  }
+
+  // Aggiunta dell'event listener per l'evento di scroll
+  window.addEventListener('scroll', handleScroll);
 
 //                                  DARK       MODE ON
 
@@ -183,19 +213,22 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".hero-section .block").classList.toggle("block-dark");
         document.querySelector(".name").classList.toggle("name-dark");
         document.querySelector(".hero-section").classList.toggle("ondark-hero");
-        document.querySelector(".wrapper").classList.toggle("ondark-wrapper");
-        document.querySelector(".icons").classList.toggle("ondark-icons");
-               
+        document.querySelector(".wrapper").classList.toggle("ondark-wrapper");               
         // Seleziona tutti gli elementi con la classe "crafting"
         const titleTexts = document.querySelectorAll(".crafting");
         titleTexts.forEach(title => {
             title.classList.toggle("name-dark");
         });
 
-        const scrollWork = document.querySelectorAll(".scroll");
-        scrollWork.forEach(scroll => {
-          scroll.classList.toggle("scroll-dark");
+        const scrollWorks = document.querySelectorAll(".scroll");
+        scrollWorks.forEach(title => {
+          title.classList.toggle("scroll-dark");
         })
+
+        const ondarkIcons = document.querySelectorAll(".icons");
+        ondarkIcons.forEach(title => {
+            title.classList.toggle("ondark-icons");
+        });
     })
 });
 

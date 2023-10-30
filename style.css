@@ -122,9 +122,9 @@ body {
 
 .nav-list {
   display: flex;
-  gap: 100px;
+  gap: 165px;
   list-style-type: none;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 }
 .nav-bar-hero {
   margin-left: 40px;
@@ -136,8 +136,9 @@ body {
   left: 163px;
   top: 40px;
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   border: none;
+  background: rgba(234, 233, 233);
 }
 .hero-section {
   width: 100%;
@@ -206,6 +207,11 @@ body {
 }
 .paragrafo1 {
   margin-top: 30px;
+}
+
+.whatsapp {
+  position: fixed;
+  top: 390px;
 }
 
 /*                               BUTTON  CTA   */
@@ -327,6 +333,10 @@ body {
 .ondark-icons {
   color: white;
 }
+
+.ondark-whatsapp {
+  color: white;
+}
 .scroll-dark {
   background: linear-gradient(
     90deg,
@@ -445,7 +455,14 @@ background-clip: text;
   transform: translateX(20%);
 }
 
-/*        FOOTER    */
+
+
+
+
+
+
+
+/*                                    FOOTER    */
 
 
 .footer-container {

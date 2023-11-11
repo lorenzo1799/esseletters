@@ -47,55 +47,54 @@ window.onload = function () {
   window.addEventListener('scroll', handleScroll);
 
 
-// Animazione per le immagini a sinistra
-gsap.to(".left", {
-    x: 0,
-    opacity: 1,
-    stagger: 0.1, // Ritardo tra ogni animazione
-    scrollTrigger: {
-        trigger: ".container",
-        start: "top 75%", // La posizione dello scroll quando inizia l'animazione
-        end: "bottom 25%",
-        markers: false, // Mostra i marker per il debug
-        scrub: true
-    }
-});
-
-// Animazione per le immagini a destra
-gsap.to(".right", {
-    x: 0,
-    opacity: 1,
-    stagger: 0.5, 
-    scrollTrigger: {
-        trigger: ".container",
-        start: "top 75%",
-        end: "bottom 25%",
-        markers: false,
-        scrub: true
-    }
-});
-
 
 function animateScrollElements(selector) {
-    const target = document.querySelectorAll(selector);
-  
-    target.forEach((element) => {
-      var pos = window.pageYOffset * element.dataset.rate;
-  
-      if (element.dataset.direction === 'vertical') {
-        element.style.transform = `translate3d(0px, ${pos}px, 0px)`;
-      } else {
-        var posX = window.pageYOffset * element.dataset.ratex;
-        var posY = window.pageYOffset * element.dataset.ratey;
-  
-        element.style.transform = `translate3d(${posX}px, ${posY}px, 0px)`;
-      }
-    });
-  }
-  
-  window.addEventListener('scroll', function(e) {
-    animateScrollElements('.scroll');
+  const target = document.querySelectorAll(selector);
+
+  target.forEach((element) => {
+    var pos = window.pageYOffset * element.dataset.rate;
+
+    if (element.dataset.direction === 'vertical') {
+      element.style.transform = `translate3d(0px, ${pos}px, 0px)`;
+    } else {
+      var posX = window.pageYOffset * element.dataset.ratex;
+      var posY = window.pageYOffset * element.dataset.ratey;
+
+      element.style.transform = `translate3d(${posX}px, ${posY}px, 0px)`;
+    }
   });
+}
+
+window.addEventListener('scroll', function(e) {
+  animateScrollElements('.scroll'); // Modifica qui il selettore
+});
+
+function animateScrollElements(selector) {
+  const target = document.querySelectorAll(selector);
+
+  target.forEach((element) => {
+    var pos = window.pageYOffset * element.dataset.rate;
+
+    if (element.dataset.direction === 'vertical') {
+      element.style.transform = `translate3d(0px, ${pos}px, 0px)`;
+    } else {
+      var posX = window.pageYOffset * element.dataset.ratex;
+      var posY = window.pageYOffset * element.dataset.ratey;
+
+      element.style.transform = `translate3d(${posX}px, ${posY}px, 0px)`;
+    }
+  });
+}
+
+window.addEventListener('scroll', function(e) {
+  animateScrollElements('.scroll');
+  animateScrollElements('.scroll1');
+});
+
+
+
+
+
   
 
 var active = 3;
@@ -120,14 +119,14 @@ var copyright = document.querySelector(".copyright");
 
 var rainbowHover = document.querySelector(".rainbow-hover");
 
-var icons = document.querySelector(".fa-brands");
+var icons = document.querySelector(".fa-instagram");
 
+var iconst = document.querySelector(".fa-tiktok");
 
+var iconsw = document.querySelector(".fa-brands");
 
 
 const lerp = (x, y, a) => x * (1 - a) + y * a;
-
-
 
 
 //                           ANIMAZIONE  "mousemove"
@@ -157,12 +156,16 @@ function handleMouseLeave() {
 }
 
 // Lista di elementi su cui applicare l'effetto
-var elements = [esseElement, changemodecircle, rainbowHover, copyright, icons];
+var elements = [esseElement, changemodecircle, rainbowHover, copyright, icons, iconst, iconsw];
 
 elements.forEach(element => {
     element.addEventListener("mousemove", handleMouseMove);
     element.addEventListener("mouseleave", handleMouseLeave);
 });
+
+
+
+
 
 //      FOOTER
 const inputs = document.querySelectorAll(".input");
@@ -187,7 +190,7 @@ inputs.forEach((input) => {
   // Funzione per gestire l'evento di scroll whatsapp
   function handleScroll() {
     // Questa è la variabile che ti permette di regolare l'altezza dello schermo in cui l'icona sparisce
-    var scrollLimit = 350;  // Puoi modificare questo valore come preferisci
+    var scrollLimit = 100;  // Puoi modificare questo valore come preferisci
 
     // Se l'utente ha scrollato più del valore di scrollLimit, nascondi l'icona
     if (window.scrollY > scrollLimit) {
@@ -197,8 +200,31 @@ inputs.forEach((input) => {
     }
   }
 
-  // Aggiunta dell'event listener per l'evento di scroll
-  window.addEventListener('scroll', handleScroll);
+  let currentSection = 0;
+
+
+ /*  // Cattura l'evento di scroll
+window.addEventListener('wheel', function(event) {
+  // Previene lo scroll predefinito
+  event.preventDefault();
+
+  // Determina la direzione dello scroll
+  const direction = event.deltaY > 0 ? 1 : -1;
+
+  // Aggiorna la sezione corrente in base alla direzione
+  currentSection += direction;
+
+  // Assicurati che currentSection sia compreso tra 0 e il numero di sezioni - 1
+  const sections = document.querySelectorAll('.section');
+  currentSection = Math.max(0, Math.min(currentSection, sections.length - 1));
+
+  // Effettua lo scroll verso la sezione corrente con un andamento "smooth"
+  sections[currentSection].scrollIntoView({ behavior: 'smooth' });
+});
+
+*/
+
+
 
 //                                  DARK       MODE ON
 
@@ -213,7 +239,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".hero-section .block").classList.toggle("block-dark");
         document.querySelector(".name").classList.toggle("name-dark");
         document.querySelector(".hero-section").classList.toggle("ondark-hero");
-        document.querySelector(".wrapper").classList.toggle("ondark-wrapper");               
+        document.querySelector(".wrapper").classList.toggle("ondark-wrapper");            
         // Seleziona tutti gli elementi con la classe "crafting"
         const titleTexts = document.querySelectorAll(".crafting");
         titleTexts.forEach(title => {

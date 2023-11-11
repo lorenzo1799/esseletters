@@ -185,7 +185,7 @@ body {
   transform: scale(1.07);
 }
 .name {
-  margin-left: 70px;
+  margin-left: 80px;
   text-align: center;
 }
 .name h1 {
@@ -193,7 +193,7 @@ body {
   user-select: none;
 }
 .name p {
-  font-size: 1.2rem;
+  font-size: 1.18rem;
   user-select: none;
   word-spacing: 0.2rem;
 }
@@ -212,6 +212,9 @@ body {
 .whatsapp {
   position: fixed;
   top: 390px;
+}
+.section {
+  height: 100vh;  /* Ogni sezione avrà l'altezza della viewport */
 }
 
 /*                               BUTTON  CTA   */
@@ -339,7 +342,7 @@ body {
 }
 .scroll-dark {
   background: linear-gradient(
-    90deg,
+    70deg,
     #E8EBF3,  /* Very Light Steel Blue - Brightest Silver Start */
     #F0F0F0,  /* Almost White - Brightest Silver */
     #C8C8C8,  /* Light Gray - Luminous Middle Silver */
@@ -404,14 +407,6 @@ background-clip: text;
   background-clip: text;
 }
 
-.scroll1 {
-  font-size: 250px;
-  font-family: 'Krona One', sans-serif;
-  opacity: 20%;
-  position: absolute; /* Aggiunto */
-  left: 500px; /* Aggiunto o modificato per posizionare la scritta */
-  top: -150px;
-}
 .crafting {
   font-family: 'Quicksand', sans-serif;
   font-size: 2rem;
@@ -424,22 +419,46 @@ background-clip: text;
   margin-left: 70px;  /* o il valore che preferisci */
 }
 
+.scroll1 {
+  position: relative;
+}
+
+.immagine1 {
+  margin-top: 600px;
+  margin-left: 900px;
+  z-index: 3;
+}
+
+.immagine2 {
+  margin-left: 550px;
+  z-index: 2;
+}
+
+.immagine3 {
+  margin-left: 950px;
+  z-index: 1;
+}
+
+.immagine4 {
+  margin-left: 600px;
+  z-index: 0;
+}
+
+/* Aggiungi altre regole CSS se necessario */
+
 
 .immagini-tattoo {
-  margin-top: 80px;
+
 }
 .immagini-tattoo img {
-  border-radius: 15px;
-}
-.immagini-tattoo img {
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s
 }
 
 .immagini-tattoo img:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 6px rgba(0,0,0,0.2);
 }
+
+
 
 
 
@@ -780,12 +799,13 @@ textarea.input {
   }
 
 
-  .paragrafo {
+  .paragrafo p {
     white-space: nowrap;
     text-overflow: ellipsis;
+
     /* O un valore specifico come "250px" */
   }
-  .paragrafo1 {
+  .paragrafo1 p{
     white-space: nowrap;
     text-overflow: ellipsis;
   }

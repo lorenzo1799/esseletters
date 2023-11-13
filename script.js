@@ -89,6 +89,7 @@ function animateScrollElements(selector) {
 window.addEventListener('scroll', function(e) {
   animateScrollElements('.scroll');
   animateScrollElements('.scroll1');
+  animateScrollElements('.scroll-Skill');
 });
 
 

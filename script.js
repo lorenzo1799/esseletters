@@ -89,12 +89,43 @@ function animateScrollElements(selector) {
 window.addEventListener('scroll', function(e) {
   animateScrollElements('.scroll');
   animateScrollElements('.scroll1');
-  animateScrollElements('.scroll-Skill');
+  animateScrollElements('.scroll-Skills');
+});
+/*
+window.addEventListener('scroll', function() {
+  var wrapper = document.querySelector('.wrapper');
+  var scrollTop = window.scrollY;
+
+  // Aggiungi o rimuovi una classe quando si fa lo scroll
+  if (scrollTop > 1000) { // Modifica questo valore in base alla posizione in cui vuoi far apparire il testo
+    wrapper.classList.add('scrolled');
+  } else {
+    wrapper.classList.remove('scrolled');
+  }
 });
 
+*/
 
+var elements_to_watch = document.querySelectorAll('.watch');
 
+        // callback
+var callback = function(items){
+  items.forEach((item) => {
+      if(item.isIntersecting){
+           item.target.classList.add("in-page");
+            } else{
+              item.target.classList.remove("in-page");
+            }
+          });
+        }
 
+        // observer
+        var observer = new IntersectionObserver(callback, { threshold: 0.6 } );
+
+        // apply
+        elements_to_watch.forEach((element) => {
+          observer.observe(element);
+        });
 
   
 
@@ -240,7 +271,8 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".hero-section .block").classList.toggle("block-dark");
         document.querySelector(".name").classList.toggle("name-dark");
         document.querySelector(".hero-section").classList.toggle("ondark-hero");
-        document.querySelector(".wrapper").classList.toggle("ondark-wrapper");            
+        document.querySelector(".wrapper").classList.toggle("ondark-wrapper");
+        document.querySelector(".left-text").classList.toggle("ondark-left-text");             
         // Seleziona tutti gli elementi con la classe "crafting"
         const titleTexts = document.querySelectorAll(".crafting");
         titleTexts.forEach(title => {

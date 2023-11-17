@@ -5,7 +5,7 @@
   font-family: "Gotico"; /* Puoi dare un nome a tua scelta */
   src: url("font/Brodequin-Regular.ttf"); /* Percorso relativo al file del font */
 }
-/*                RE-SET page */
+ /*                RE-SET page */
 * {
   margin: 0;
   padding: 0;
@@ -199,7 +199,7 @@ body {
   word-spacing: 0.2rem;
 }
 .esse {
-  font-family: Gotico, sans-serif;
+  font-family: 'Gotico';
   font-size: large;
   font-weight: bold;
 }
@@ -315,6 +315,10 @@ body {
 /*                                 CSS DARK MODE !!*/
 .ondark-hero {
   background-color: #000;
+}
+
+.ondark-left-text {
+  color: white;
 }
 
 .madebydark {
@@ -457,26 +461,76 @@ background-clip: text;
 .immagine4 img {
   margin-left: 550px;
   z-index: 0;
-  transform: scale(0.8);
+  transform: scale(0.83);
 }
 
 .immagini-tattoo {
   margin-left: 150px;
-}
-
-
-.immagini-tattoo img {
-  transition: transform 0.3s
-}
-
-.immagini-tattoo img:hover {
-  transform: scale(1.05);
+  max-height: 300vh;
 }
 
 
 
 
+/* Stile per la sezione del testo a sinistra */
+.left-text {
+  position: fixed;
+  left: 250px;
+  z-index: 2; /* Per posizionare il testo sopra le immagini */
+  justify-content: center;
+  text-align: center;
+  margin-top: 200px;
+}
 
+/* Stile per ciascun span */
+.left-text-tattoo {
+  display: block;
+  margin-bottom: 550px; /* Regola questo valore per aumentare o diminuire lo spazio tra gli span */
+  font-family: 'UnifrakturMaguntia', cursive;
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: all 1.5s cubic-bezier(0.315, 0.61, 0.355, 1);
+  text-align: center;
+}
+
+.fade-in.in-page {
+  opacity: 1;
+}
+
+
+
+
+/*
+.hidden-text {
+  position: relative;
+  z-index: 1; 
+}
+
+/* Stile per le strisce nere che coprono il testo */
+/*
+.left-text-tattoo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -10px;
+  width: 100px;
+  height: 100%;
+  background-color: rgb(36, 36, 36);
+  transition: width 0.2s ease-out; 
+}
+
+
+/* Stile per la transizione quando lo scroll avviene */
+/*
+.wrapper.scrolled .left-text::before {
+  width: 0;
+}
+
+*/
 
 /*                                    FOOTER    */
 

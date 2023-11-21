@@ -319,6 +319,7 @@ body {
 
 .ondark-left-text {
   color: white;
+  opacity: 1;
 }
 
 .madebydark {
@@ -409,19 +410,6 @@ background-clip: text;
   
 }
 
-.sp-Works {
-  background: linear-gradient(
-    90deg,
-    #2E3A47,  /* Charcoal Start */
-    #21282f,  
-    #4A5766,  /* Steel Gray Middle */
-    #5A6875,
-    #6B7A85   /* Slate Gray End */
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
 
 .crafting {
   font-family: 'Quicksand', sans-serif;
@@ -430,9 +418,6 @@ background-clip: text;
   margin-bottom: 50px;
   transform: translateX(50px);
   opacity: 90%;
-}
-.indented-text {
-  margin-left: 70px;  /* o il valore che preferisci */
 }
 
 .scroll1 {
@@ -459,36 +444,91 @@ background-clip: text;
 }
 
 .immagine4 img {
+  margin-left: 500px;
+  z-index: 0;
+  transform: scale(1.1);
+}
+
+.immagine6 img{
+  margin-left: 800px;
+  z-index: 0;
+  transform: scale(1.2);
+}
+
+.immagine7 img{
+  margin-left: 500px;
+  z-index: 0;
+  transform: scale(0.9);
+}
+.immagine8 img{
+  margin-left: 850px;
+  z-index: 0;
+  transform: scale(0.9);
+}
+.immagine9 img{
+  margin-left: 850px;
+  z-index: 0;
+  transform: scaleX(-1);
+}
+.immagine10 img{
   margin-left: 550px;
   z-index: 0;
-  transform: scale(0.83);
+  transform: scale(0.95);
 }
+.immagine10 img{
+  margin-left: 550px;
+  z-index: 0;
+  transform: scale(0.9);
+}
+.immagine11 img{
+  margin-left: 900px;
+  z-index: 0;
+  transform: scale(0.9);
+}
+.immagine12 img{
+  margin-left: 550px;
+  z-index: 0;
+  transform: scale(0.9);
+}
+.immagine13 img{
+  margin-left: 900px;
+  z-index: 0;
+  transform: scale(0.9);
+}
+
+.immagine14 img{
+  margin-left: 800px;
+  z-index: 0;
+  transform: scale(1.3);
+}
+
+
+
 
 .immagini-tattoo {
   margin-left: 150px;
-  max-height: 300vh;
+  max-height: 320vh;
 }
 
 
 
 
-/* Stile per la sezione del testo a sinistra */
 .left-text {
   position: fixed;
-  left: 250px;
-  z-index: 2; /* Per posizionare il testo sopra le immagini */
   justify-content: center;
   text-align: center;
   margin-top: 200px;
 }
 
-/* Stile per ciascun span */
 .left-text-tattoo {
   display: block;
-  margin-bottom: 550px; /* Regola questo valore per aumentare o diminuire lo spazio tra gli span */
-  font-family: 'UnifrakturMaguntia', cursive;
-  font-size: xx-large;
+  margin-bottom: 600px; 
+  font-family: 'Poppins', cursive;
+  font-size: 70px;
   font-weight: bolder;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+  opacity: 50%;
 }
 
 .fade-in {

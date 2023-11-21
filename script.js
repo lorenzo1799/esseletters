@@ -106,28 +106,31 @@ window.addEventListener('scroll', function() {
 
 */
 
-var elements_to_watch = document.querySelectorAll('.watch');
+window.addEventListener('scroll', function() {
+  var scrollPosition = window.scrollY || window.pageYOffset;
+  var elements = document.querySelectorAll('.left-text-tattoo');
 
-        // callback
-var callback = function(items){
-  items.forEach((item) => {
-      if(item.isIntersecting){
-           item.target.classList.add("in-page");
-            } else{
-              item.target.classList.remove("in-page");
-            }
-          });
-        }
+  elements.forEach(function(el, index) {
+    var elementTop = el.getBoundingClientRect().top;
+    var elementBottom = el.getBoundingClientRect().bottom;
+    var windowHeight = window.innerHeight;
 
-        // observer
-        var observer = new IntersectionObserver(callback, { threshold: 0.6 } );
+    if (elementTop < windowHeight && elementBottom >= 0) {
+      // L'elemento è visibile parzialmente o completamente nella viewport
+      el.style.transform = 'translateX(' + (index * 50) + 'px)';
+    } else {
+      // L'elemento non è più visibile nella viewport
+      el.style.transform = 'translateX(-100%)';
+    }
+  });
+});
 
-        // apply
-        elements_to_watch.forEach((element) => {
-          observer.observe(element);
-        });
 
-  
+
+
+
+
+
 
 var active = 3;
 
@@ -272,7 +275,8 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".name").classList.toggle("name-dark");
         document.querySelector(".hero-section").classList.toggle("ondark-hero");
         document.querySelector(".wrapper").classList.toggle("ondark-wrapper");
-        document.querySelector(".left-text").classList.toggle("ondark-left-text");             
+        document.querySelector(".sp-Work").classList.toggle("ondark-left-text");
+
         // Seleziona tutti gli elementi con la classe "crafting"
         const titleTexts = document.querySelectorAll(".crafting");
         titleTexts.forEach(title => {
@@ -282,12 +286,17 @@ document.addEventListener("DOMContentLoaded", function() {
         const scrollWorks = document.querySelectorAll(".scroll");
         scrollWorks.forEach(title => {
           title.classList.toggle("scroll-dark");
-        })
+        });
 
         const ondarkIcons = document.querySelectorAll(".icons");
         ondarkIcons.forEach(title => {
             title.classList.toggle("ondark-icons");
         });
+
+        const ondarkLeftText = document.querySelectorAll(".left-text-tattoo");
+        ondarkLeftText.forEach(title => {
+          title.classList.toggle("ondark-left-text");
+        })
     })
 });
 
